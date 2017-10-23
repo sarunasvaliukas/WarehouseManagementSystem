@@ -1,44 +1,164 @@
-﻿<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
-    @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
+﻿@*<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>@ViewBag.Title - My ASP.NET Application</title>
+        @Styles.Render("~/Content/css")
+        @Scripts.Render("~/bundles/modernizr")
 
-</head>
-<body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                </ul>
-                @Html.Partial("_LoginPartial")
+    </head>
+    <body>
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li>@Html.ActionLink("Product", "Index", "Product")</li>
+                        <li>@Html.ActionLink("ProductModel", "Details", "ProductModel")</li>
+                        <li>@Html.ActionLink("Manufacturer", "Index", "Manufacturer")</li>
+                        <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                        <li>@Html.ActionLink("About", "About", "Home")</li>
+                        <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    </ul>
+                    @Html.Partial("_LoginPartial")
+                </div>
             </div>
         </div>
-    </div>
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
-    </div>
+        <div class="container body-content">
+            @RenderBody()
+            <hr />
+            <footer>
+                <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            </footer>
+        </div>
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")
+        @RenderSection("scripts", required: false)
+    </body>
+    </html>*@
+
+
+
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="CACHE-CONTROL" content="NO-CACHE" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>VTD ::</title>
+    @*@Styles.Render("~/Content/css")*@
+    @Scripts.Render("~/bundles/modernizr")
+    <link rel="shortcut icon" type="image/x-icon" href="~/Content/Images/icons/favicon.png" />
+    <link rel="stylesheet" href="~/Content/bootstrap.css" />
+    <link rel="stylesheet" href="~/Content/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/Content/Site.css" />
+
+    <link rel="stylesheet" href="~/Content/default.css" />
+
+
+</head>
+
+<body>
+    <div class="content-container">
+
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-md-12">
+                    <a href="@Url.Action("Index", "Home")" class="logo clearfix" title="Warehouse management system">
+                        <div class="logo-wrapper">
+                            <img class="logo-img" src="~/fonts/logo_nw_large.png" alt="VTD" />
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <nav class="navbar navbar-default">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-navbar-collapse" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+                <div class="collapse navbar-collapse" id="main-navbar-collapse">
+
+                    <ul class="nav navbar-nav">
+                        <li>@Html.ActionLink("Products", "Index", "Product")</li>
+                        <li>@Html.ActionLink("Product models", "Details", "ProductModel")</li>
+                        <li>@Html.ActionLink("Manufacturers", "Index", "Manufacturer")</li>
+                        <li>@Html.ActionLink("Orders", "Index", "Order")</li>
+                    </ul>
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>@Html.Partial("_LoginPartial")</li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <div class="container" ng-cloak>
+            @RenderBody()
+        </div>
+
+        @RenderSection("scripts", required: false)
+
+        <div class="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-7 col-sm-8">
+                        <div class="copyright">© @DateTime.Today.Year - Warehouse management system</div>
+                        <div class="footer-text">
+                            Didlaukio g. 47, Vilnius<br />
+                            El. paštas&nbsp;<a href="mailto:sarunas.valiukas@mif.stud.vu.lt">sarunas.valiukas@mif.stud.vu.lt</a>.
+                        </div>
+                    </div>
+                    <div class="col-xs-5 col-sm-4">
+                        <div class="footer-links">
+                            Copyright
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="confirmbox" class="modal fade">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title">Patvirtinkite</h4>
+                    </div>
+                    <div id="confirmMessage" class="modal-body">
+                        <p></p>
+                    </div>
+                    <div class="modal-footer">
+
+                        <button id="confirmTrue" type="button" class="btn btn-primary">Patvirtinti</button>
+                        <button id="confirmFalse" type="button" class="btn btn-default" data-dismiss="modal">Atšaukti</button>
+                    </div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
+
+    </div>
+    <noscript style="padding: 10px;">
+        <style type="text/css">
+            .content-container {
+                display: none;
+            }
+        </style>
+    </noscript>
 </body>
 </html>

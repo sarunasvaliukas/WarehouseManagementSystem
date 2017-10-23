@@ -1,0 +1,69 @@
+﻿@model IEnumerable<WarehouseSystem.UI.Models.ProductView>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Products</h2>
+<hr />
+
+<div class="form-group">
+    <input type="button" value="Add model" class="btn btn-default" onclick="location.href=location.href='@Url.Action("Edit", "ProductModel")'" />
+    <input type="button" value="Add product" class="btn btn-default" onclick="location.href=location.href='@Url.Action("Edit", "Product")'" />
+</div>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class="form-horizontal">        
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <div class="form-group">
+            <div class="col-md-10">
+                @Html.DropDownList("modelId", (SelectList)ViewBag.ProductModels, "All", new { @class = "form-control" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Search" class="btn btn-default"/>
+            </div>
+        </div>
+    </div>
+}
+
+@*@foreach (var item in Model)
+{
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.SerialNumber)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.Id })
+            @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+        </td>
+    </tr>
+}*@
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.SerialNumber)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.SerialNumber)
+            </td>
+            <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id })
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+        </tr>
+    }
+
+</table>

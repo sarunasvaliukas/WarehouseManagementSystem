@@ -8,7 +8,7 @@ using System.Web.Routing;
 
 namespace WarehouseSystem.UI
 {
-    public class MvcApplication : System.Web.HttpApplication
+    public class MvcApplication : HttpApplication
     {
         protected void Application_Start()
         {
@@ -16,6 +16,9 @@ namespace WarehouseSystem.UI
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+
+            AutoMapperConfig.Load();
+            Bootstrapper.Initialise();
         }
     }
 }

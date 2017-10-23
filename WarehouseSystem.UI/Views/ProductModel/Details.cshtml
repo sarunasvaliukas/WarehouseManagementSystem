@@ -1,0 +1,56 @@
+﻿@model WarehouseSystem.UI.Models.ProductModelView
+
+<div>
+    <h2>Product models</h2>
+    <hr />
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        <div class="form-horizontal">        
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+            <div class="form-group">
+                <div class="col-md-3">
+                    @Html.DropDownList("modelId", (SelectList)ViewBag.ProductModels, new { @class = "form-control" })
+                </div>
+                <div class="col-md-9">
+                    <input type="submit" value="Search" class="btn btn-default"/>
+                </div>
+            </div>
+        </div>
+    }
+
+    @if (Model.Id.HasValue)
+    {
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.ModelNumber)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ModelNumber)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Title)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Title)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Description)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Description)
+            </dd>
+            
+            <dd>
+                @Html.ActionLink("Edit", "Edit", new { id = Model.Id })
+            </dd>
+        </dl>
+    }
+
+</div>

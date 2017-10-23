@@ -1,0 +1,21 @@
+﻿@model IList<WarehouseSystem.UI.Models.ManufacturerViewList>
+
+@{
+    ViewBag.Title = "Manufacturers";
+}
+
+<h2>Manufacturers</h2>
+<hr />
+<div class="form-group">
+    <input type="button" class="btn btn-default" value="Add" onclick="location.href=location.href='@Url.Action("Edit", "Manufacturer")'" />
+</div>
+
+<br />
+
+@foreach (var item in Model)
+{
+    <div class="form-group">
+        <label class="label-custom">@item.Tittle</label>
+        <input type="button" value="Edit" class="btn btn-default" onclick="location.href=location.href='@Url.Action("Edit", "Manufacturer", new { item.Id })'" />
+    </div>
+}
