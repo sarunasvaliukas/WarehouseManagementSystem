@@ -5,10 +5,12 @@ using System.Web;
 using System.Web.Mvc;
 using WarehouseSystem.Repository;
 using WarehouseSystem.UI.Helpers;
+using WarehouseSystem.UI.Helpers.Interfaces;
 using WarehouseSystem.UI.Models;
 
 namespace WarehouseSystem.UI.Controllers
 {
+    [Authorize]
     public class ProductController : Controller
     {
         private readonly IProductHelper productHelper;

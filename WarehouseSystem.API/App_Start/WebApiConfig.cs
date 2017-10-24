@@ -5,6 +5,8 @@ using System.Web.Http;
 using Unity;
 using Unity.Lifetime;
 using WarehouseSystem.Repository;
+using WarehouseSystem.Repository.Implemanations;
+using WarehouseSystem.Repository.Interfaces;
 
 namespace WarehouseSystem.API
 {

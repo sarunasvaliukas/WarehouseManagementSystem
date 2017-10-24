@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using WarehouseSystem.DataAccess;
+using WarehouseSystem.Repository.Interfaces;
 
-namespace WarehouseSystem.Repository
+namespace WarehouseSystem.Repository.Implemanations
 {
     public class WarehouseRepository : IWarehouseRepository
     {

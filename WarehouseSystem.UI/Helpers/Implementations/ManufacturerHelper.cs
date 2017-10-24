@@ -1,11 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using WarehouseSystem.DataAccess;
-using WarehouseSystem.Repository;
+using WarehouseSystem.Repository.Interfaces;
+using WarehouseSystem.UI.Helpers.Interfaces;
 using WarehouseSystem.UI.Models;
 
-namespace WarehouseSystem.UI.Helpers
+namespace WarehouseSystem.UI.Helpers.Implementations
 {
     public class ManufcaturerHelper : IManufacturerHelper
     {

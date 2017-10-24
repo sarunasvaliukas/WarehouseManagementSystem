@@ -218,12 +218,12 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Helpers\IProductModelHelper.cs" />
-    <Compile Include="Helpers\IManufacturerHelper.cs" />
-    <Compile Include="Helpers\IProductHelper.cs" />
-    <Compile Include="Helpers\ManufacturerHelper.cs" />
-    <Compile Include="Helpers\OrderHelper.cs" />
-    <Compile Include="Helpers\ProductHelper.cs" />
+    <Compile Include="Helpers\Interfaces\IProductModelHelper.cs" />
+    <Compile Include="Helpers\Interfaces\IManufacturerHelper.cs" />
+    <Compile Include="Helpers\Interfaces\IProductHelper.cs" />
+    <Compile Include="Helpers\Implementations\ManufacturerHelper.cs" />
+    <Compile Include="Helpers\Implementations\OrderHelper.cs" />
+    <Compile Include="Helpers\Implementations\ProductHelper.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\OrderView.cs" />
@@ -274,8 +274,6 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
     <Content Include="Views\Account\ConfirmEmail.cshtml" />

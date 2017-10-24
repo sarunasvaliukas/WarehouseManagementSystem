@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using WarehouseSystem.Repository;
 using WarehouseSystem.UI.Helpers;
+using WarehouseSystem.UI.Helpers.Interfaces;
 using WarehouseSystem.UI.Models;
 
 namespace WarehouseSystem.UI.Controllers
@@ -50,6 +51,7 @@ namespace WarehouseSystem.UI.Controllers
         }
 
         [HttpPost]
+        [Authorize]
         public ActionResult Edit(ProductModelView productModelView)
         {
             if (!ModelState.IsValid)

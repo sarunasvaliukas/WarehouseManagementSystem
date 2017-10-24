@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using WarehouseSystem.Repository;
 using WarehouseSystem.UI.Helpers;
+using WarehouseSystem.UI.Helpers.Interfaces;
 using WarehouseSystem.UI.Models;
 
 namespace WarehouseSystem.UI.Controllers
@@ -23,6 +24,7 @@ namespace WarehouseSystem.UI.Controllers
             return View(manufacturerHelper.GetManufacturers());
         }
 
+        [Authorize]
         public ActionResult Edit(long? id)
         {
             if (id.HasValue)

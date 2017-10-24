@@ -12,11 +12,11 @@ namespace WarehouseSystem.UI.Models
         public long? Id { get; set; }
 
         [Required]
-        [MinLength(2)]
+        [MinLength(1)]
         public string Tittle { get; set; }
 
         [Required]
-        [MinLength(5)]
+        [MinLength(3)]
         [MaxLength(50)]
         public string Country { get; set; }
 

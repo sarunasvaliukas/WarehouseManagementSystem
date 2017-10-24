@@ -1,4 +1,4 @@
-﻿@model IList<WarehouseSystem.UI.Models.ManufacturerViewList>
+﻿@model IEnumerable<WarehouseSystem.UI.Models.ManufacturerViewList>
 
 @{
     ViewBag.Title = "Manufacturers";
@@ -12,10 +12,23 @@
 
 <br />
 
-@foreach (var item in Model)
-{
-    <div class="form-group">
-        <label class="label-custom">@item.Tittle</label>
-        <input type="button" value="Edit" class="btn btn-default" onclick="location.href=location.href='@Url.Action("Edit", "Manufacturer", new { item.Id })'" />
-    </div>
-}
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Tittle)
+        </th>
+        <th>Actions</th>
+    </tr>
+
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Tittle)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.Id })
+            </td>
+        </tr>
+    }
+
+</table>

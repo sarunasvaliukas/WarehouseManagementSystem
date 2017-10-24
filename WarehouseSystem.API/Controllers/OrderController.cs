@@ -2,6 +2,7 @@
 using WarehouseSystem.API.Models;
 using WarehouseSystem.DataAccess;
 using WarehouseSystem.Repository;
+using WarehouseSystem.Repository.Interfaces;
 
 namespace WarehouseSystem.API.Controllers
 {

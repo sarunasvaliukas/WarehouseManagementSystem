@@ -48,14 +48,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IOrderRepository.cs" />
-    <Compile Include="IManufacturerRepository.cs" />
-    <Compile Include="IWarehouseRepository.cs" />
-    <Compile Include="IProductRepository.cs" />
-    <Compile Include="OrderRepository.cs" />
-    <Compile Include="ManufacturerRepository.cs" />
-    <Compile Include="WarehouseRepository.cs" />
-    <Compile Include="ProductRepository.cs" />
+    <Compile Include="Interfaces\IOrderRepository.cs" />
+    <Compile Include="Interfaces\IManufacturerRepository.cs" />
+    <Compile Include="Interfaces\IWarehouseRepository.cs" />
+    <Compile Include="Interfaces\IProductRepository.cs" />
+    <Compile Include="Implemanations\OrderRepository.cs" />
+    <Compile Include="Implemanations\ManufacturerRepository.cs" />
+    <Compile Include="Implemanations\WarehouseRepository.cs" />
+    <Compile Include="Implemanations\ProductRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
