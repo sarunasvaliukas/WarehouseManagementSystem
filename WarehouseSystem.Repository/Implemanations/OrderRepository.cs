@@ -12,7 +12,10 @@ namespace WarehouseSystem.Repository.Implemanations
         {
             using (var dbContext = new WarehouseContext())
             {
-                return dbContext.Orders.Include(o => o.ProductModel).ToList();
+                return dbContext.Orders
+                    .Include(o => o.ProductModel)
+                    .Include(o => o.ProductModel.Manufacturer)
+                    .ToList();
             }
         }
 

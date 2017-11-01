@@ -10,6 +10,7 @@ using WarehouseSystem.UI.Models;
 
 namespace WarehouseSystem.UI.Controllers
 {
+    [Authorize]
     public class ProductModelController : Controller
     {
         private readonly IProductHelper productHelper;
@@ -21,6 +22,7 @@ namespace WarehouseSystem.UI.Controllers
             this.manufacturerHelper = manufacturerHelper;
         }
 
+        [AuthRole(Roles = "ADMIN")]
         public ActionResult Edit(long? id)
         {
             ProductModelView productModelView;
@@ -28,6 +30,11 @@ namespace WarehouseSystem.UI.Controllers
             if (id.HasValue)
             {
                 productModelView = productHelper.GetProductModel(id.Value);
+
+                if (productModelView == null)
+                {
+                    return View("Error");
+                }               
             }
             else
             {
@@ -51,7 +58,7 @@ namespace WarehouseSystem.UI.Controllers
         }
 
         [HttpPost]
-        [Authorize]
+        [AuthRole(Roles = "ADMIN")]
         public ActionResult Edit(ProductModelView productModelView)
         {
             if (!ModelState.IsValid)

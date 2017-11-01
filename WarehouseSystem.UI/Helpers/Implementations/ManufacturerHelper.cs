@@ -23,7 +23,8 @@ namespace WarehouseSystem.UI.Helpers.Implementations
 
         public ManufacturerView GetManufacturer(long id)
         {
-            return CreateManufacturerView(manufacturerRepository.GetManufacturer(id));
+            var manufacturer = manufacturerRepository.GetManufacturer(id);
+            return manufacturer == null ? null : CreateManufacturerView(manufacturer);
         }
 
         public void Save(ManufacturerView manufacturerView)

@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-using WarehouseSystem.Repository;
-using WarehouseSystem.UI.Helpers;
+﻿using System.Web.Mvc;
 using WarehouseSystem.UI.Helpers.Interfaces;
 using WarehouseSystem.UI.Models;
 
@@ -32,6 +26,7 @@ namespace WarehouseSystem.UI.Controllers
             return View(productHelper.GetProducts());
         }
 
+        [AuthRole(Roles = "ADMIN")]
         public ActionResult Edit(long? id)
         {
             ProductView productView;
@@ -39,6 +34,11 @@ namespace WarehouseSystem.UI.Controllers
             if (id.HasValue)
             {
                 productView = productHelper.GetProduct(id.Value);
+
+                if (productView == null)
+                {
+                    return View("Error");
+                }
             }
             else
             {
@@ -50,6 +50,7 @@ namespace WarehouseSystem.UI.Controllers
             return View(productView);
         }
 
+        [AuthRole(Roles = "ADMIN")]
         public ActionResult Delete(long? id)
         {
             if (id.HasValue)
@@ -61,6 +62,7 @@ namespace WarehouseSystem.UI.Controllers
         }
 
         [HttpPost]
+        [AuthRole(Roles = "ADMIN")]
         public ActionResult Edit(ProductView productView)
         {
             if (!ModelState.IsValid)

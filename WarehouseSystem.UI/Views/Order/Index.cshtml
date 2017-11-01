@@ -1,8 +1,11 @@
-﻿@model IEnumerable<WarehouseSystem.UI.Models.OrderView>
+﻿@model IEnumerable<WarehouseSystem.API.Models.OrderModel>
 
 <p>
-    @*@Html.ActionLink("Create New", "Create")
-</p>*@
+    <div class="form-group">
+        <input type="button" value="New order" class="btn btn-default" onclick="location.href=location.href='@Url.Action("Edit", "Order")'" />
+    </div>
+</p>
+
 <table class="table">
     <tr>
         <th>
@@ -12,9 +15,11 @@
             @Html.DisplayNameFor(model => model.ProductQuantity)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.ProductModel.Title)
+            @Html.DisplayNameFor(model => model.ProductModel.Manufacturer)
         </th>
-        @*<th></th>*@
+        <th>
+            @Html.DisplayNameFor(model => model.ProductModel.ModelNumber)
+        </th>    
     </tr>
 
 @foreach (var item in Model) {
@@ -26,13 +31,15 @@
             @Html.DisplayFor(modelItem => item.ProductQuantity)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.ProductModel.Title)
+            @Html.DisplayFor(modelItem => item.ProductModel.Manufacturer)
         </td>
-        @*<td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+        <td>
+            @Html.DisplayFor(modelItem => item.ProductModel.ModelNumber)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id })
             @Html.ActionLink("Delete", "Delete", new { id=item.Id })
-        </td>*@
+        </td>
     </tr>
 }
 

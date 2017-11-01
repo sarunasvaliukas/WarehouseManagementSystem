@@ -40,12 +40,15 @@ namespace WarehouseSystem.UI.Helpers.Implementations
 
         public ProductView GetProduct(long id)
         {
-            return CreateProductView(productRepository.GetProduct(id));
+            var product = productRepository.GetProduct(id);
+            return product == null ? null : CreateProductView(product);
         }
 
         public ProductModelView GetProductModel(long id)
         {
-            return CreateProductModelView(productRepository.GetProductModel(id));
+            var productModel = productRepository.GetProductModel(id);
+
+            return productModel == null ? null : CreateProductModelView(productModel);
         }
 
         public IList<WarehouseView> GetWarehouses()
